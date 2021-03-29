@@ -5,6 +5,7 @@
 
 using namespace std;
 
+
 string *separaStringPorEspaco(int tamanho, string str)
 {
     istringstream iss(str);
