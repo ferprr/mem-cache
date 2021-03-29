@@ -2,9 +2,9 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+#include "headers/hierarquia.hpp"
 
 using namespace std;
-
 
 string *separaStringPorEspaco(int tamanho, string str)
 {
@@ -39,7 +39,7 @@ int stringToInt(string s)
 void executarComInputsSobDemanda()
 {
     string linha;
-    //Memoria memoria;
+    Hierarquia hier = Hierarquia();
 
     while (getline(cin, linha))
     {
@@ -56,10 +56,8 @@ void executarComInputsSobDemanda()
         {
             int enderecoMemoriaParaLeitura = stringToInt(vetEntrada[0]);
 
-            //cout << "Leitura: " << enderecoMemoriaParaLeitura << endl;
-
             //TODO:
-            //string dadoLido = memoria.ler(enderecoMemoriaParaLeitura);
+            //string dadoLido = hierarquia.ler(enderecoMemoriaParaLeitura);
         }
         else if (operacao == "1")
         {
@@ -68,8 +66,8 @@ void executarComInputsSobDemanda()
 
             //cout << "Escrita: " << enderecoMemoriaParaEscrita << " --> " << dadoEscrita << endl;
 
-            //TODO:
-            //bool hitOuMiss = memoria.escreverNaCache(enderecoMemoriaParaEscrita);
+            hier.escreverNaCache(enderecoMemoriaParaEscrita, dadoEscrita);
+            cout << linha << " W" << endl;
         }
     }
 }
@@ -82,7 +80,7 @@ void executarComArquivo(string caminhoArquivo, string printarInput)
     if (arquivo.is_open())
     {
 
-        //Memoria memoria;
+        Hierarquia hier = Hierarquia();
         string linha;
 
         while (getline(arquivo, linha))
@@ -103,7 +101,7 @@ void executarComArquivo(string caminhoArquivo, string printarInput)
                 cout << "Leitura: " << enderecoMemoriaParaLeitura << endl;
 
                 //TODO:
-                //string dadoLido = memoria.ler(enderecoMemoriaParaLeitura);
+                //string dadoLido = hierarquia.ler(enderecoMemoriaParaLeitura);
             }
             else if (operacao == "1")
             {
@@ -112,8 +110,8 @@ void executarComArquivo(string caminhoArquivo, string printarInput)
 
                 cout << "Escrita: " << enderecoMemoriaParaEscrita << " --> " << dadoEscrita << endl;
 
-                //TODO:
-                //bool hitOuMiss = memoria.escreverNaCache(enderecoMemoriaParaEscrita);
+                hier.escreverNaCache(enderecoMemoriaParaEscrita, dadoEscrita);
+                cout << linha << " W" << endl;
             }
         }
         arquivo.close();

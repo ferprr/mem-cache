@@ -8,12 +8,13 @@ using namespace std;
 class Hierarquia
 {
 private:
-    string memoria_dados[4096];
-    Cache *cache;
+    string *memoria_dados;
+    Cache *memoria_cache;
     void converter_endereco(int endereco, int *tag, int *index, int *offset);
 
 public:
-    void set_endereco(int endereco, string dado);
+    Hierarquia();
+    void escreverNaCache(int endereco, string dado);
 };
 
 #endif

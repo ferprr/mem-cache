@@ -7,10 +7,13 @@ using namespace std;
 class Bloco
 {
 private:
-    string line[4];
+    string *palavras;
+    string tag;
+    bool sujo;
 
 public:
-    void set_endereco(string endereco);
+    Bloco();
+    //void set_endereco(string endereco);
 };
 
 #endif
