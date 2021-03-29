@@ -1,6 +1,9 @@
+#include <string>
 #include "headers/bloco.hpp"
 
-void Bloco::set_endereco(string endereco)
+const int QTDE_PALAVRAS = 4;
+
+Bloco::Bloco()
 {
-    this->line[1] = endereco; //ver posicao
+    this->palavras = new string[QTDE_PALAVRAS];
 }
