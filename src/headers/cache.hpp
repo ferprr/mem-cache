@@ -12,6 +12,7 @@ private:
 
 public:
     Cache();
+    string ler(string tag, string index, string offset);
     //bool get_sujo();
     //void set_dado(int pos_bloco, string endereco);
 };
