@@ -3,6 +3,7 @@
 #include <sstream>
 #include <fstream>
 #include "headers/hierarquia.hpp"
+#include "headers/cache.hpp"
 
 using namespace std;
 
@@ -124,7 +125,7 @@ void executarComArquivo(string caminhoArquivo, string printarInput)
 
 int main(int argc, char *argv[])
 {
-    if (argc == 1)
+    /*if (argc == 1)
     {
         executarComInputsSobDemanda();
     }
@@ -145,8 +146,22 @@ int main(int argc, char *argv[])
     else
     {
         cout << "Número incorreto de parâmetros. Envie nada OU o caminho para o arquivo E uma flag \"s\" ou \"n\" para printar os inputs na tela ou não." << endl;
-    }
+    }*/
 
     //system("pause");
+
+    Cache memc = Cache();
+
+    //cout << memc.ler("00", "00000001", "01") << endl;
+    cout << memc.ler("01", "01100101", "00") << endl;
+
+    memc.escrever("01", "01100101", "00", "000111000111");
+
+    cout << memc.ler("01", "01100101", "00") << endl;
+    cout << memc.ler("01", "01100101", "01") << endl;
+    cout << memc.ler("01", "01100101", "10") << endl;
+    cout << memc.ler("01", "01100101", "11") << endl;
+
+    cout << memc.ler("00", "01100101", "00") << endl;
     return 0;
 }

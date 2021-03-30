@@ -10,12 +10,31 @@ Bloco::Bloco()
     this->tag = "";
 }
 
+void Bloco::set_sujo(bool novoSujo)
+{
+    this->sujo = novoSujo;
+}
+
 bool Bloco::is_sujo()
 {
     return this->sujo;
 }
 
+void Bloco::set_tag(string novaTag)
+{
+    this->tag = novaTag;
+}
 string Bloco::get_tag()
 {
     return this->tag;
+}
+
+void Bloco::set_valor(int offset, string valor)
+{
+    this->palavras[offset] = valor;
+}
+
+string Bloco::get_valor(int offset)
+{
+    return this->palavras[offset];
 }
