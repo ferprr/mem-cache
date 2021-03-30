@@ -57,7 +57,8 @@ void executarComInputsSobDemanda()
         {
             int enderecoMemoriaParaLeitura = stringToInt(vetEntrada[0]);
 
-            string dado = hier.ler(enderecoMemoriaParaLeitura);
+            string dadoLido = hier.ler(enderecoMemoriaParaLeitura);
+            cout << linha << " " << dadoLido << endl;
         }
         else if (operacao == "1")
         {
@@ -74,6 +75,8 @@ void executarComInputsSobDemanda()
 
 void executarComArquivo(string caminhoArquivo, string printarInput)
 {
+    ofstream arquivoSaida("result.txt");
+
     ifstream arquivo;
     arquivo.open(caminhoArquivo);
 
@@ -96,14 +99,13 @@ void executarComArquivo(string caminhoArquivo, string printarInput)
 
             if (operacao == "0")
             {
-                cout << "passou" << endl;
                 int enderecoMemoriaParaLeitura = stringToInt(vetEntrada[0]);
 
                 //cout << "Leitura: " << enderecoMemoriaParaLeitura << endl;
 
                 string dadoLido = hier.ler(enderecoMemoriaParaLeitura);
                 cout << linha << " " << dadoLido << endl;
-
+                arquivoSaida << linha << " " << dadoLido << endl;
             }
             else if (operacao == "1")
             {
@@ -114,9 +116,11 @@ void executarComArquivo(string caminhoArquivo, string printarInput)
 
                 hier.escrever(enderecoMemoriaParaEscrita, dadoEscrita);
                 cout << linha << " W" << endl;
+                arquivoSaida << linha << " W" << endl;
             }
         }
         arquivo.close();
+        arquivoSaida.close();
     }
     else
     {
