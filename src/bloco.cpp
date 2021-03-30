@@ -8,6 +8,9 @@ Bloco::Bloco()
     this->palavras = new string[QTDE_PALAVRAS];
     this->sujo = false;
     this->tag = "";
+    for(int i=0; i<4; i++){
+        palavras[i]= "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+    }
 }
 
 void Bloco::set_sujo(bool novoSujo)

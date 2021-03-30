@@ -13,10 +13,9 @@ private:
 public:
     Cache();
     string ler(string tag, string index, string offset);
-
+    string precisa_write_back(string index, string tag, string offset);
     void escrever(string tag, string index, string offset, string valor);
-    //bool get_sujo();
-    //void set_dado(int pos_bloco, string endereco);
+    string get_valor(string index, string offset);
 };
 
 #endif

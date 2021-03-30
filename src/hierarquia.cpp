@@ -12,6 +12,9 @@ Hierarquia::Hierarquia()
 {
     this->memoria_dados = new string[QTDE_MEMORIA_DADOS];
     this->memoria_cache = new Cache();
+    for(int i=0; i<QTDE_MEMORIA_DADOS; i++){
+        memoria_dados[i]= "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+    }
 }
 
 void Hierarquia::converter_endereco(int endereco, string *tag, string *index, string *offset)
@@ -26,16 +29,19 @@ void Hierarquia::converter_endereco(int endereco, string *tag, string *index, st
 
 void Hierarquia::escrever(int endereco, string dado)
 {
-    cout << "Nada por enquanto" << endl;
-    //this->cache.set_dado(int endereco, string dado);
+    string tag, index, offset;
 
-    //chama metodo converter endereco e buscar valores offset, index e tag
-    //verificar se na cache, bloco com index==index está sujo
-    //se estiver limpo: colocar dado na posição do index + offset na cache
-    //se não: devemos pegar o valor que estiver na posição do index + offset + tag na cache
-    //colocar valor encontrado acima na memória de dados e colocar dado na posição do index + offset na cache
+    this->converter_endereco(endereco, &tag, &index, &offset);
+
+    string resultado = this->memoria_cache->precisa_write_back(index, tag, offset);
+
+    if(resultado == "MISS"){
+        string valorCache = this->memoria_cache->get_valor(index, offset);
+        this->memoria_dados[endereco] = valorCache;
+    }
+    this->memoria_cache->escrever(tag, index, offset, dado);
+
 }
-
 string Hierarquia::ler(int endereco)
 {
     string tag, index, offset;

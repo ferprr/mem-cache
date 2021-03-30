@@ -96,19 +96,21 @@ void executarComArquivo(string caminhoArquivo, string printarInput)
 
             if (operacao == "0")
             {
+                cout << "passou" << endl;
                 int enderecoMemoriaParaLeitura = stringToInt(vetEntrada[0]);
 
-                cout << "Leitura: " << enderecoMemoriaParaLeitura << endl;
+                //cout << "Leitura: " << enderecoMemoriaParaLeitura << endl;
 
-                //TODO:
-                //string dadoLido = hierarquia.ler(enderecoMemoriaParaLeitura);
+                string dadoLido = hier.ler(enderecoMemoriaParaLeitura);
+                cout << linha << " " << dadoLido << endl;
+
             }
             else if (operacao == "1")
             {
                 int enderecoMemoriaParaEscrita = stringToInt(vetEntrada[0]);
                 string dadoEscrita = vetEntrada[2];
 
-                cout << "Escrita: " << enderecoMemoriaParaEscrita << " --> " << dadoEscrita << endl;
+                //cout << "Escrita: " << enderecoMemoriaParaEscrita << " --> " << dadoEscrita << endl;
 
                 hier.escrever(enderecoMemoriaParaEscrita, dadoEscrita);
                 cout << linha << " W" << endl;
@@ -125,7 +127,7 @@ void executarComArquivo(string caminhoArquivo, string printarInput)
 
 int main(int argc, char *argv[])
 {
-    /*if (argc == 1)
+    if (argc == 1)
     {
         executarComInputsSobDemanda();
     }
@@ -146,22 +148,9 @@ int main(int argc, char *argv[])
     else
     {
         cout << "Número incorreto de parâmetros. Envie nada OU o caminho para o arquivo E uma flag \"s\" ou \"n\" para printar os inputs na tela ou não." << endl;
-    }*/
+    }
 
     //system("pause");
 
-    Cache memc = Cache();
-
-    //cout << memc.ler("00", "00000001", "01") << endl;
-    cout << memc.ler("01", "01100101", "00") << endl;
-
-    memc.escrever("01", "01100101", "00", "000111000111");
-
-    cout << memc.ler("01", "01100101", "00") << endl;
-    cout << memc.ler("01", "01100101", "01") << endl;
-    cout << memc.ler("01", "01100101", "10") << endl;
-    cout << memc.ler("01", "01100101", "11") << endl;
-
-    cout << memc.ler("00", "01100101", "00") << endl;
     return 0;
 }

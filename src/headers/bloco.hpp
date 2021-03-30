@@ -22,7 +22,7 @@ public:
 
     void set_valor(int offset, string valor);
     string get_valor(int offset);
-    //void set_endereco(string endereco);
+    
 };
 
 #endif
