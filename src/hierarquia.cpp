@@ -51,7 +51,7 @@ string Hierarquia::ler(int endereco)
     if (resultado == "MISS")
     {
         string valorProcurado = this->memoria_dados[endereco];
-        //this->memoria_cache->escrever(tag, index, offset, valorProcurado);
+        this->memoria_cache->escrever(tag, index, offset, valorProcurado);
     }
 
     return resultado;
