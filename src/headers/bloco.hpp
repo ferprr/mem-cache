@@ -13,6 +13,9 @@ private:
 
 public:
     Bloco();
+
+    bool is_sujo();
+    string get_tag();
     //void set_endereco(string endereco);
 };
 

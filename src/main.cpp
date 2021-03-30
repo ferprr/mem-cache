@@ -56,8 +56,7 @@ void executarComInputsSobDemanda()
         {
             int enderecoMemoriaParaLeitura = stringToInt(vetEntrada[0]);
 
-            //TODO:
-            //string dadoLido = hierarquia.ler(enderecoMemoriaParaLeitura);
+            string dado = hier.ler(enderecoMemoriaParaLeitura);
         }
         else if (operacao == "1")
         {
@@ -66,7 +65,7 @@ void executarComInputsSobDemanda()
 
             //cout << "Escrita: " << enderecoMemoriaParaEscrita << " --> " << dadoEscrita << endl;
 
-            hier.escreverNaCache(enderecoMemoriaParaEscrita, dadoEscrita);
+            hier.escrever(enderecoMemoriaParaEscrita, dadoEscrita);
             cout << linha << " W" << endl;
         }
     }
@@ -110,7 +109,7 @@ void executarComArquivo(string caminhoArquivo, string printarInput)
 
                 cout << "Escrita: " << enderecoMemoriaParaEscrita << " --> " << dadoEscrita << endl;
 
-                hier.escreverNaCache(enderecoMemoriaParaEscrita, dadoEscrita);
+                hier.escrever(enderecoMemoriaParaEscrita, dadoEscrita);
                 cout << linha << " W" << endl;
             }
         }

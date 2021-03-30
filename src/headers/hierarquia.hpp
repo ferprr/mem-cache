@@ -10,11 +10,14 @@ class Hierarquia
 private:
     string *memoria_dados;
     Cache *memoria_cache;
-    void converter_endereco(int endereco, int *tag, int *index, int *offset);
+    void converter_endereco(int endereco, string *tag, string *index, string *offset);
 
 public:
     Hierarquia();
-    void escreverNaCache(int endereco, string dado);
+
+    void escrever(int endereco, string dado);
+
+    string ler(int endereco);
 };
 
 #endif
